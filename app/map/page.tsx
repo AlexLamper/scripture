@@ -6,59 +6,60 @@ import Link from "next/link";
 
 export default function MapPage() {
   const [sections, setSections] = useState<any[]>([]);
-  const [markers, setMarkers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const supabase = createClient();
 
   useEffect(() => {
     const fetchSections = async () => {
-      const { data, error } = await supabase.from("sections").select();
+      try {
+        const { data, error } = await supabase.from("sections").select();
 
-      if (error) {
-        console.error("Error fetching sections:", error.message);
-      } else {
-        setSections(data);
+        if (error) {
+          setError(`Error fetching sections: ${error.message}`);
+          setLoading(false);
+          return;
+        }
+
+        if (data && data.length > 0) {
+          setSections(data);
+        } else {
+          setSections([]);
+        }
+        setLoading(false);
+      } catch (err: any) {
+        setError(`Error during sections fetch: ${err.message}`);
+        setLoading(false);
       }
     };
 
     fetchSections();
   }, [supabase]);
 
-  useEffect(() => {
-    const fetchMarkers = async () => {
-      const { data, error } = await supabase.from("markers").select();
+  if (loading) {
+    return <p>Loading sections...</p>;
+  }
 
-      if (error) {
-        console.error("Error fetching markers:", error.message);
-      } else {
-        setMarkers(data);
-      }
-    };
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
 
-    fetchMarkers();
-  }, [supabase]);
+  if (sections.length === 0) {
+    return <div className="error-message">No sections found.</div>;
+  }
 
   return (
     <div className="flex-1 w-full flex flex-col gap-12">
-      <h2 className="font-bold text-2xl mb-4">All Sections and Markers</h2>
-      {sections.map((section) => (
-        <div key={section.section_id}>
-          <h3 className="font-bold text-xl mt-4">{section.title}</h3>
-          <ul className="space-y-2">
-            {markers
-              .filter((marker) => marker.section_id === section.section_id)
-              .map((marker) => (
-                <li key={marker.marker_id}>
-                  <Link
-                    href={`/map/${section.section_id}/${marker.marker_id}`}
-                    className="text-blue-500 hover:underline"
-                  >
-                    {marker.name}
-                  </Link>
-                </li>
-              ))}
-          </ul>
-        </div>
-      ))}
+      <h2>Explore the Sections</h2>
+      <ul>
+        {sections.map((section) => (
+          <li key={section.section_id}>
+            <Link href={`/map/${section.section_id}`}>
+              {section.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

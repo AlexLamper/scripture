@@ -12,22 +12,34 @@ export default function SectionPage() {
 
   useEffect(() => {
     const fetchMarkers = async () => {
-      const { data, error } = await supabase
-        .from("markers")
-        .select()
-        .eq("section_id", section);
+      if (!section) {
+        console.error("Section parameter is missing.");
+        return;
+      }
 
-      if (error) {
-        console.error(`Error fetching markers for section ${section}:`, error.message);
-      } else {
+      try {
+        const { data, error } = await supabase
+          .from("markers")
+          .select()
+          .eq("section_id", section);
+
+        if (error) {
+          console.error(`Error fetching markers for section ${section}:`, error.message);
+          return;
+        }
+
         setMarkers(data);
+      } catch (err) {
+        console.error("Unexpected error fetching markers:", err);
       }
     };
 
-    if (section) {
-      fetchMarkers();
-    }
+    fetchMarkers();
   }, [section, supabase]);
+
+  if (!section) {
+    return <div className="error-message">Section not found.</div>;
+  }
 
   return (
     <div className="flex-1 w-full flex flex-col gap-12">
