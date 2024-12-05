@@ -20,7 +20,7 @@ export default async function Signup(props: {
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
-      <form className="flex flex-col w-full max-w-sm border p-12">
+      <form className="flex flex-col w-full max-w-sm border p-12 justify-center">
         <h1 className="text-2xl font-medium">Sign up</h1>
         <p className="text-sm text text-foreground">
           Already have an account?{" "}

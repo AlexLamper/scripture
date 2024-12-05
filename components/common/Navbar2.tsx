@@ -10,6 +10,7 @@ import { RxChevronDown } from "react-icons/rx";
 import GrayButton from "../buttons/BrownButton";
 import { ThemeProvider } from "next-themes";
 import { ThemeSwitcher } from "../theme-switcher";
+import { ModeToggle } from "../buttons/ModeToggleButton";
 
 type ImageProps = {
   url?: string;
@@ -109,7 +110,7 @@ export const Navbar2 = (props: Navbar2Props) => {
             </div>
           ))}
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
-            <ThemeSwitcher />
+            <ModeToggle />
             {/* Auth Section for Larger Screens */}
             <div className="hidden md:flex items-center space-x-4">
               {/* <ClerkLoading>
