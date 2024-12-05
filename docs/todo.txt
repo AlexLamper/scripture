@@ -1,6 +1,4 @@
 TODO:
 ------
 
-- Add a completion system for the quizzes/markers (When a user completes a quiz with 80% or higher, they complete the quiz/level/marker) This get's updated on the map on the home page. 
-- Admin role
-- As an admin you can update markdown files/the content of a specific quiz and text etc...
+- Add error pages

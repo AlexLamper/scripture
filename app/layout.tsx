@@ -47,7 +47,7 @@ export default function RootLayout({
 
             {/* Main layout container */}
             <div
-              className={`flex ${isHomePage ? "lg:max-h-[100vh] md:max-h-[100vh]" : ""}`}
+              className={`flex ${isHomePage ? "lg:max-h-[100vh] lg:min-w-[100vw] md:max-h-[100vh]" : ""}`}
             >
               <Sidebar />
               <main className="flex-grow">{children}</main>
