@@ -2,10 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
 export const updateSession = async (request: NextRequest) => {
-  // This `try/catch` block is only here for the interactive tutorial.
-  // Feel free to remove once you have Supabase connected.
   try {
-    // Create an unmodified response
     let response = NextResponse.next({
       request: {
         headers: request.headers,
@@ -35,24 +32,61 @@ export const updateSession = async (request: NextRequest) => {
       },
     );
 
-    // This will refresh session if expired - required for Server Components
-    // https://supabase.com/docs/guides/auth/server-side/nextjs
     const user = await supabase.auth.getUser();
 
-    // protected routes
-    if (request.nextUrl.pathname.startsWith("/protected") && user.error) {
+    const protectedRoutes = [
+      "/home",
+      "/map",
+      "/api",
+      "/chapters",
+      "/characters",
+      "/dashboard",
+      "/events",
+      "/leaderboard",
+      "/notes",
+      "/places",
+      "/progress",
+      "/settings",
+      "/teachings",
+      "/themes",
+    ];
+
+    const publicRoutes = [
+      "/",
+      "/login",
+      "/sign-in",
+      "/sign-up",
+      "/about",
+      "/help",
+      "/tos",
+    ];
+
+    const isProtectedRoute = protectedRoutes.some(route => 
+      request.nextUrl.pathname.startsWith(route) || 
+      request.nextUrl.pathname === route
+    );
+
+    const isPublicRoute = publicRoutes.some(route => 
+      request.nextUrl.pathname.startsWith(route) || 
+      request.nextUrl.pathname === route
+    );
+
+    if (isProtectedRoute && user.error) {
       return NextResponse.redirect(new URL("/sign-in", request.url));
     }
 
     if (request.nextUrl.pathname === "/" && !user.error) {
-      return NextResponse.redirect(new URL("/protected", request.url));
+      return NextResponse.redirect(new URL("/home", request.url));
     }
+
+    // Optional: Redirect authenticated users away from public routes
+    // if (isPublicRoute && !user.error) {
+    //   return NextResponse.redirect(new URL("/home", request.url));
+    // }
 
     return response;
   } catch (e) {
-    // If you are here, a Supabase client could not be created!
-    // This is likely because you have not set up environment variables.
-    // Check out http://localhost:3000 for Next Steps.
+    console.error("Supabase client creation failed:", e);
     return NextResponse.next({
       request: {
         headers: request.headers,
@@ -60,3 +94,4 @@ export const updateSession = async (request: NextRequest) => {
     });
   }
 };
+
