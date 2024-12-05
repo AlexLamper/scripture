@@ -6,7 +6,7 @@ import { useMediaQuery } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronDown } from "react-icons/rx";
-import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+// import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import GrayButton from "../buttons/BrownButton";
 
 type ImageProps = {
@@ -109,7 +109,7 @@ export const Navbar2 = (props: Navbar2Props) => {
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
             {/* Auth Section for Larger Screens */}
             <div className="hidden md:flex items-center space-x-4">
-              <ClerkLoading>
+              {/* <ClerkLoading>
                 <div className="h-5 w-5 text-gray-400 animate-spin" />
               </ClerkLoading>
               <ClerkLoaded>
@@ -124,7 +124,7 @@ export const Navbar2 = (props: Navbar2Props) => {
                     <GrayButton title="Sign Up" height="h-[2.8rem] p-4" fontSize="text-[1rem]" />
                   </SignUpButton>
                 </SignedOut>
-              </ClerkLoaded>
+              </ClerkLoaded> */}
             </div>
           </div>
         </motion.div>

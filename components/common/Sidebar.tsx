@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { SignedIn } from "@clerk/nextjs";
+// import { SignedIn } from "@clerk/nextjs";
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { MdHome, MdInfo, MdPlace, MdLeaderboard, MdPerson4, MdEventNote } from 'react-icons/md';
@@ -13,7 +13,6 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <SignedIn>
       <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-black bg-opacity-5 dark:bg-white dark:bg-opacity-5 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:relative md:translate-x-0 max-h-full`}>
         <nav className="p-8 h-full overflow-y-auto">
           <ul>
@@ -80,7 +79,6 @@ const Sidebar = () => {
           </ul>
         </nav>
       </div>
-    </SignedIn>
   );
 };
 
