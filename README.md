@@ -1,96 +1,124 @@
-<a href="https://demo-nextjs-with-supabase.vercel.app/">
-  <img alt="Next.js and Supabase Starter Kit - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
-  <h1 align="center">Next.js and Supabase Starter Kit</h1>
-</a>
+# 📖 Scripture
 
-<p align="center">
- The fastest way to build apps with Next.js and Supabase
-</p>
+Thanks for checking out **Scripture** – Your Interactive Bible Learning Platform.
 
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#demo"><strong>Demo</strong></a> ·
-  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
-</p>
-<br/>
+---
 
-## Features
+## About Scripture
 
-- Works across the entire [Next.js](https://nextjs.org) stack
-  - App Router
-  - Pages Router
-  - Middleware
-  - Client
-  - Server
-  - It just works!
-- supabase-ssr. A package to configure Supabase Auth to use cookies
-- Styling with [Tailwind CSS](https://tailwindcss.com)
-- Components with [shadcn/ui](https://ui.shadcn.com/)
-- Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Environment variables automatically assigned to Vercel project
+I created Scripture as my second 'startup' in the creation of 6 startups in 6 months. Scripture is a web-based platform designed to help users explore and study the Bible interactively. Whether you're a beginner or someone with extensive Bible knowledge, Scripture provides personalized tools, quizzes, and learning resources to enhance your journey.
 
-## Demo
+---
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
+## 📜 Table of Contents
 
-## Deploy to Vercel
+1. [Features](#features)
+2. [Tech Stack](#tech-stack)
+3. [Pages](#pages)
+4. [API](#api)
+5. [Contributing](#contributing)
+6. [Support](#support)
+7. [License](#license)
+8. [Version](#version)
+9. [FAQ](#faq)
+10. [Contact](#contact)
 
-Vercel deployment will guide you through creating a Supabase account and project.
+---
 
-After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
+## 🌟 Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&demo-title=nextjs-with-supabase&demo-description=This+starter+configures+Supabase+Auth+to+use+cookies%2C+making+the+user%27s+session+available+throughout+the+entire+Next.js+app+-+Client+Components%2C+Server+Components%2C+Route+Handlers%2C+Server+Actions+and+Middleware.&demo-url=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&demo-image=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png)
+- **Personalized Learning**: Track your progress with personalized suggestions and daily Bible reading prompts.
+- **Bible Quizzes**: Test your knowledge of Bible characters, events, places, and teachings with fun, interactive quizzes.
+- **Progress Tracking**: Keep track of your learning milestones, quizzes, and daily Bible engagement.
+- **Interactive Bible Map**: Explore key locations from the Bible with an interactive map, helping you learn about historical places, events, and people.
+- **Leaderboards**: Compete with other users in quizzes and progress tracking.
+- **Community Insights**: Engage with the community by sharing insights, notes, and learning experiences.
+- **Daily Verses and Teachings**: Access daily Bible verses and thematic teachings to reflect upon.
 
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
+---
 
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
+## 💻 Tech Stack
 
-## Clone and run locally
+Scripture uses modern technologies to provide an optimal performance and user experience:
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+- **Next.js (TypeScript)**: Primary framework for building the app, supporting server-side rendering and static site generation.
+- **Supabase**: Database and authentication managed all by Supabase, fast and easy to use.
+- **Vercel**: Hosting and deployment platform optimized for Next.js applications.
+- **TailwindCSS**: Utility-first CSS framework for rapid, consistent styling.
+- **Leaflet**: JavaScript library for interactive maps, making Bible geography and exploration more engaging.
+- **Bible API**: Fetch Bible verses and related information to provide an enriched learning experience.
+- **Clerk**: Authentication service for secure login and account management.
+- **ShadCN**: UI styling library for modular and accessible components, ensuring a cohesive design.
+- **React-Icons**: Extensive icon library to improve visual consistency in the UI.
 
-2. Create a Next.js app using the Supabase Starter template npx command
+---
 
-   ```bash
-   npx create-next-app -e with-supabase
-   ```
+## 📄 Pages
 
-3. Use `cd` to change into the app's directory
+- **Home**: The main page featuring the interactive Bible map and daily content suggestions.
+- **Chapters**: Explore individual Bible chapters with a breakdown of key verses and themes.
+- **Places**: Learn about significant biblical places and their relevance in the Bible.
+- **Characters**: Discover key Bible characters, their stories, and their impact.
+- **Events**: Explore significant events in the Bible and their teachings.
+- **Themes**: Study key Bible themes, including love, salvation, and more.
+- **Leaderboard**: Compete with other users and track your progress.
+- **Profile**: Customize your profile, view achievements, and track your learning journey.
+- **Settings**: Manage your account settings and preferences.
+- **Help/FAQ**: Access FAQs and resources for support.
 
-   ```bash
-   cd name-of-new-app
-   ```
+---
 
-4. Rename `.env.example` to `.env.local` and update the following:
+## 🌐 API
 
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
-   ```
+Scripture uses the **Bible API** for fetching Bible verses and related content, providing an enriched and up-to-date learning experience. For more information on available data, check out the [Bible API documentation](https://example.com).
 
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
+---
 
-5. You can now run the Next.js local development server:
+## 🤝 Contributing
 
-   ```bash
-   npm run dev
-   ```
+Scripture is an open-source project and contributions are welcome! Here's how you can contribute:
 
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
+1. **Fork the repository** and create a new branch.
+2. **Make your changes** and add descriptive commit messages.
+3. **Submit a pull request** detailing your improvements or fixes.
 
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
+Every contribution helps make BibleMap better for everyone! 🎉
 
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
+---
 
-## Feedback and issues
+## ❤️ Support
 
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
+If you’d like to support the project, sharing Scripture with others or contributing to the development is greatly appreciated!
 
-## More Supabase examples
+---
 
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE), allowing for reuse and modification with attribution.
+
+---
+
+## 📌 Version
+
+Current Version: **v1.0**
+
+---
+
+## ❓ FAQ
+
+**Q: Is Scripture free to use?**  
+A: Yes! Scripture is free for everyone. Premium features may be added in the future.
+
+**Q: What Bible translations are supported?**  
+A: Scripture currently supports the **King James Version (KJV)**, with plans to expand to other translations in the future.
+
+**Q: How do I report a bug or suggest a feature?**  
+A: Please open an issue on our GitHub repository with details of your suggestion or bug report.
+
+---
+
+## 📬 Contact
+
+Got questions, feedback, or just want to say hi? Reach out at [devlamper06@gmail.com](mailto:devlamper06@gmail.com).
+
+Thanks for checking out **Scripture**! 📖
