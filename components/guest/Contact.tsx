@@ -31,7 +31,7 @@ export const Contact24 = (props: Contact24Props) => {
       <div className="container">
         <div className="rb-12 mb-12 max-w-lg md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+          <h2 className="rb-5 mb-5 text-3xl font-bold md:mb-6 md:text-5xl lg:text-6xl">
             {heading}
           </h2>
           <p className="md:text-md">{description}</p>
@@ -40,7 +40,7 @@ export const Contact24 = (props: Contact24Props) => {
           {contacts.map((contact, index) => (
             <div key={index}>
               <div className="rb-5 mb-5 md:mb-6">{contact.icon}</div>
-              <h3 className="mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
+              <h3 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl md:leading-[1.3] lg:text-3xl">
                 {contact.title}
               </h3>
               <p className="mb-5 md:mb-6">{contact.description}</p>

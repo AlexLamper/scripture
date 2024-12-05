@@ -51,9 +51,9 @@ export const Pricing17 = (props: Pricing17Props) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="mx-auto mb-8 max-w-lg text-center md:mb-10 lg:mb-12">
+        <div className="mx-auto mb-8 text-center md:mb-10 lg:mb-12 lg:max-w-[55%] max-w-[100%]">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+          <h2 className="rb-5 mb-5 text-3xl font-bold md:mb-6 md:text-4xl lg:text-5xl">
             {heading}
           </h2>
           <p className="md:text-md">{description}</p>
@@ -108,7 +108,7 @@ const PricingPlan = ({ plan, billing }: { plan: PricingPlan; billing: Billing })
           <p>{plan.description}</p>
         </div>
         <div className="text-right">
-          <h1 className="text-6xl font-bold md:text-9xl lg:text-10xl">
+          <h1 className="text-3xl font-bold md:text-5xl lg:text-6xl">
             {plan.price}
             <span className="text-2xl font-bold md:text-3xl lg:text-4xl">
               {billing === "monthly" ? "/mo" : "/yr"}

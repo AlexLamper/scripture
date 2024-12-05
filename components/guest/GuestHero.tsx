@@ -22,8 +22,8 @@ export const GuestHero = (props: GuestHeroProps) => {
       <div className="container">
         <div className="flex flex-col items-center">
           <div className="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
-            <div className="w-full max-w-lg">
-              <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
+            <div className="w-full lg:max-w-[80%] max-w-[100%] mx-auto">
+              <h1 className="mb-5 text-3xl font-bold md:mb-6 md:text-6xl lg:text-7xl">
                 BibleMap, the number <span className="text-[#855940]">#1</span> Bible Learning Platform
               </h1>
               <p className="md:text-md">{description}</p>

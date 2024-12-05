@@ -4,6 +4,7 @@ import Features from '@/components/guest/Features'
 import CTA from '@/components/guest/CTA'
 import Pricing17 from '@/components/guest/Pricing'
 import Contact24 from '@/components/guest/Contact'
+import Footer from '@/components/common/Footer'
 
 const index = () => {
   return (
@@ -14,6 +15,7 @@ const index = () => {
             <CTA />
             <Pricing17 />
             <Contact24 />
+            <Footer />
         </div>
     </div>
   )

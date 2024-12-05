@@ -8,6 +8,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronDown } from "react-icons/rx";
 // import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import GrayButton from "../buttons/BrownButton";
+import { ThemeProvider } from "next-themes";
+import { ThemeSwitcher } from "../theme-switcher";
 
 type ImageProps = {
   url?: string;
@@ -107,6 +109,7 @@ export const Navbar2 = (props: Navbar2Props) => {
             </div>
           ))}
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
+            <ThemeSwitcher />
             {/* Auth Section for Larger Screens */}
             <div className="hidden md:flex items-center space-x-4">
               {/* <ClerkLoading>

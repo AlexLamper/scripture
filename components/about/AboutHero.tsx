@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
 import TransparentButton from "../buttons/TransparentButton";
 
 type ImageProps = {
@@ -37,19 +36,14 @@ export const Header83 = (props: Header83Props) => {
           style={{ opacity: opacityContent }}
         >
           <div className="px-[5%] py-16 md:py-24 lg:py-28">
-            <div className="mx-auto max-w-lg text-center">
-              <h1 className="mb-5 text-6xl font-bold text-text-alternative md:mb-6 md:text-9xl lg:text-10xl">
+            <div className="mx-auto lg:max-w-[80%] max-w-[95%] text-center">
+              <h1 className="mb-5 text-3xl font-bold text-text-alternative md:mb-6 md:text-5xl lg:text-7xl text-[#d3d3d3]">
                 {heading}
               </h1>
-              <p className="text-text-alternative md:text-md">{description}</p>
+              <p className="text-text-alternative md:text-md text-[#f1f1f1]">{description}</p>
               <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
-                <SignedIn>
-                  <TransparentButton title="Explore" url="/map/" />
-                </SignedIn>
-                <SignedOut>
                   <TransparentButton title="Sign Up" url="/sign-up" />
                   <TransparentButton title="See More" url="/" />
-                </SignedOut>
               </div>
             </div>
           </div>

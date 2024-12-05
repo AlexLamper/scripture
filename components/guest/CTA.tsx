@@ -26,10 +26,10 @@ export const Cta9 = (props: Cta9Props) => {
       <div className="relative container grid w-full grid-cols-1 items-start justify-between gap-6 md:grid-cols-[1fr_max-content] md:gap-x-12 md:gap-y-8 lg:gap-x-20">
         <div className="md:mr-12 lg:mr-0">
           <div className="w-full max-w-lg">
-            <h2 className="mb-3 text-4xl font-bold leading-[1.2] text-white md:mb-4 md:text-5xl lg:text-6xl">
+            <h2 className="mb-3 text-2xl font-bold leading-[1.2] text-white md:mb-4 md:text-3xl lg:text-4xl">
               {heading}
             </h2>
-            <p className="text-white md:text-md">{description}</p>
+            <p className="text-white md:text-md text-sm">{description}</p>
           </div>
         </div>
         <div className="flex items-start justify-start gap-4">

@@ -14,9 +14,9 @@ interface TransparentButtonProps {
 
 const TransparentButton: React.FC<TransparentButtonProps> = ({
   title,
-  width = 'w-full max-w-[12rem] min-w-[8rem]',
-  height = 'h-[2.8rem] p-4',
-  fontSize = 'text-[1.2rem]',
+  width = 'w-full max-w-[12rem] min-w-[4rem]',
+  height = 'lg:h-[2.8rem] h-[1.7rem] p-4',
+  fontSize = 'lg:text-[1.2rem] text-[0.8rem]',
   padding = 'p-6',
   url,
   onClick,

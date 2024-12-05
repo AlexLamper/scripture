@@ -57,9 +57,9 @@ export const Features = (props: FeaturesProps) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 md:w-auto lg:mb-20">
+        <div className="mx-auto mb-12 w-full text-center md:mb-18 md:w-auto lg:mb-20 lg:max-w-[80%] max-w-[100%]">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
+          <h1 className="mb-5 text-3xl font-bold md:mb-6 md:text-6xl lg:text-7xl max-w-max">{heading}</h1>
           <p className="md:text-md">{description}</p>
           <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
             <BrownButton title="Start Now" url="/sign-up" />
