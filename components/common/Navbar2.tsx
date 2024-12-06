@@ -227,14 +227,14 @@ export const Navbar2Defaults: Navbar2Props = {
   logo: {
     url: "/",
     src: "/logo/logo.svg",
-    alt: "BibleMap Logo",
+    alt: "Scripture Logo",
   },
   navLinks: [
     { title: "Home", url: "/" },
     { title: "About", url: "/about" },
     {
-        title: "Learning",
-        url: "/map",
+        title: "Learn",
+        url: "/learn",
         subMenuLinks: [
           {
             icon: {
