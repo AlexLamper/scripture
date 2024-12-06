@@ -22,7 +22,7 @@ export default function NotesPage() {
   }, [supabase]);
 
   return (
-    <div className="p-6">
+    <div className="p-6 min-h-[100vh]">
       <h1 className="text-2xl font-bold mb-4">Notes</h1>
       {notes && notes.length > 0 ? (
         <ul className="space-y-3">

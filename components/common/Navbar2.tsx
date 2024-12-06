@@ -233,8 +233,8 @@ export const Navbar2Defaults: Navbar2Props = {
     { title: "Home", url: "/" },
     { title: "About", url: "/about" },
     {
-        title: "Categories",
-        url: "#",
+        title: "Learning",
+        url: "/map",
         subMenuLinks: [
           {
             icon: {

@@ -42,7 +42,7 @@ export default function SectionPage() {
   }
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-12">
+    <div className="flex-1 w-full flex flex-col gap-12 min-h-[100vh] p-6">
       <h2 className="font-bold text-2xl mb-4">Markers for Section: {section}</h2>
       <ul className="space-y-2">
         {markers.map((marker) => (

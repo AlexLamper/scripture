@@ -1,12 +1,12 @@
 import { createClient } from "@/utils/supabase/server";
-import { InfoIcon } from "lucide-react";
+import { InfoIcon, Mail, User } from 'lucide-react';
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default async function HomePage() {
+export default async function ProtectedPage() {
   const supabase = await createClient();
 
-  // Get authenticated user
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -15,7 +15,6 @@ export default async function HomePage() {
     return redirect("/sign-in");
   }
 
-  // Fetch sections from the database
   const { data: sections, error } = await supabase
     .from("sections")
     .select("section_id, title");
@@ -25,35 +24,51 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-12 p-6">
-      {/* Info Message */}
-      <div className="w-full">
-        <div className="bg-accent text-sm p-3 px-5 rounded-md text-foreground flex gap-3 items-center">
-          <InfoIcon size="16" strokeWidth={2} />
-          Welcome to Scripture! You are authenticated.
-        </div>
-      </div>
-
+    <div className="flex-1 w-full flex flex-col gap-8 p-4 sm:p-6">
+      
       {/* User Details */}
-      <div className="flex flex-col gap-2 items-start">
-        <h2 className="font-bold text-2xl mb-4">Your user details</h2>
-        <pre className="text-xs font-mono p-3 rounded border max-h-32 overflow-auto">
-          {JSON.stringify(user, null, 2)}
-        </pre>
-      </div>
+      <Card className="w-full sm:w-[90%]">
+        <CardHeader>
+          <CardTitle>Your User Details</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <div className="flex items-center space-x-4">
+              <User className="h-6 w-6 text-muted-foreground" />
+              <div>
+                <p className="text-sm font-medium leading-none">Name</p>
+                <p className="text-sm text-muted-foreground">{user.user_metadata.full_name || 'Not provided'}</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Mail className="h-6 w-6 text-muted-foreground" />
+              <div>
+                <p className="text-sm font-medium leading-none">Email</p>
+                <p className="text-sm text-muted-foreground">{user.email}</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-sm font-medium leading-none mb-1">Last Sign In</p>
+              <p className="text-sm text-muted-foreground">
+                {new Date(user.last_sign_in_at || '').toLocaleString()}
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Sections */}
-      <div className="flex flex-col gap-6">
-        <h2 className="font-bold text-2xl">Explore Sections</h2>
+      <div className="flex flex-col gap-6 w-full">
+        <h2 className="font-bold text-2xl mb-4">Explore Sections</h2>
         {sections && sections.length > 0 ? (
-          <ul className="space-y-4">
+          <ul className="space-y-4 w-full">
             {sections.map((section) => (
               <li
                 key={section.section_id}
-                className="border rounded-md p-4 hover:bg-accent transition"
+                className="border rounded-md p-4 hover:bg-accent transition w-full sm:w-[90%]"
               >
                 <Link
-                  href={`/${section.section_id}`}
+                  href={`/map/${section.section_id}`}
                   className="text-blue-500 underline font-semibold text-lg"
                 >
                   {section.title}
