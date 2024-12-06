@@ -49,7 +49,7 @@ export default function MapPage() {
   }
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-12">
+    <div className="flex-1 w-full flex flex-col gap-12 min-h-[100vh] p-6">
       <h2>Explore the Sections</h2>
       <ul>
         {sections.map((section) => (

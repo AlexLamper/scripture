@@ -53,7 +53,7 @@ export const Navbar2 = (props: Navbar2Props) => {
       <div className="mx-auto size-full items-center justify-between lg:flex">
         <div className="grid min-h-16 grid-cols-2 items-center justify-between px-[5%] md:max-h-[10vh] lg:min-h-full lg:px-0">
           <div className="hover:cursor-pointer" onClick={() => window.location.href = "/"}>
-            <Image src={logo.src} alt={logo.alt || "Logo"} width={150} height={75} />
+            <h1 className="text-3xl font-bold">Scripture</h1>
           </div>
           <button
             className="-mr-2 flex size-12 flex-col items-center justify-center justify-self-end lg:hidden"
@@ -189,7 +189,7 @@ const SubMenu = ({
               },
             }}
             transition={{ duration: 0.3 }}
-            className="z-50 bg-gray-100 lg:absolute lg:w-80 lg:border lg:border-border-primary lg:p-6 lg:[--y-close:25%] rounded-md"
+            className="z-50 bg-gray-100 lg:absolute lg:w-80 lg:border lg:border-border-primary lg:p-6 lg:[--y-close:25%] rounded-md text-black"
           >
             <div className="grid grid-cols-1 grid-rows-[max-content] gap-y-2 py-3 md:py-3 lg:gap-y-4 lg:py-0">
               {subMenuLinks.map((subMenuLink, index) => (
@@ -233,8 +233,8 @@ export const Navbar2Defaults: Navbar2Props = {
     { title: "Home", url: "/" },
     { title: "About", url: "/about" },
     {
-        title: "Categories",
-        url: "#",
+        title: "Learning",
+        url: "/map",
         subMenuLinks: [
           {
             icon: {
