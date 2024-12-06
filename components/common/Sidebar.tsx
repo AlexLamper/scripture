@@ -24,7 +24,8 @@ const isProtectedRoute = (pathname: string) => {
     '/settings',
     '/teachings',
     '/themes',
-    '/protected'
+    '/protected',
+    '/profile'
   ];
 
   if (pathname.startsWith('/map')) {
@@ -59,26 +60,18 @@ const Sidebar = () => {
               Map
             </Link>
           </li>
-          {/* Add more sidebar links based on protected routes */}
-          <li className={`mb-4 flex items-center cursor-pointer ${pathname.startsWith('/chapters') ? 'bg-[#A67B5B] text-white dark:bg-[#A67B5B] rounded-[0.4rem]' : ''}`}>
-            <Link href="/chapters" className="flex items-center w-full px-4 py-2 rounded font-medium hover:bg-opacity-10 transition-colors duration-200">
+          <li className={`mb-4 flex items-center cursor-pointer ${pathname === '/notes' ? 'bg-[#A67B5B] text-white dark:bg-[#A67B5B] rounded-[0.4rem]' : ''}`}>
+            <Link href="/notes" className="flex items-center w-full px-4 py-2 rounded font-medium hover:bg-opacity-10 transition-colors duration-200">
               <FaBookOpen size={20} className="mr-2" />
-              Chapters
+              Notes
             </Link>
           </li>
-          <li className={`mb-4 flex items-center cursor-pointer ${pathname.startsWith('/places') ? 'bg-[#A67B5B] text-white dark:bg-[#A67B5B] rounded-[0.4rem]' : ''}`}>
-            <Link href="/places" className="flex items-center w-full px-4 py-2 rounded font-medium hover:bg-opacity-10 transition-colors duration-200">
-              <MdPlace size={20} className="mr-2" />
-              Places
+          <li className={`mb-4 flex items-center cursor-pointer ${pathname === '/leaderboard' ? 'bg-[#A67B5B] text-white dark:bg-[#A67B5B] rounded-[0.4rem]' : ''}`}>
+            <Link href="/leaderboard" className="flex items-center w-full px-4 py-2 rounded font-medium hover:bg-opacity-10 transition-colors duration-200">
+              <MdLeaderboard size={20} className="mr-2" />
+              Leaderboard
             </Link>
           </li>
-          <li className={`mb-4 flex items-center cursor-pointer ${pathname.startsWith('/characters') ? 'bg-[#A67B5B] text-white dark:bg-[#A67B5B] rounded-[0.4rem]' : ''}`}>
-            <Link href="/characters" className="flex items-center w-full px-4 py-2 rounded font-medium hover:bg-opacity-10 transition-colors duration-200">
-              <MdPerson4 size={20} className="mr-2" />
-              Characters
-            </Link>
-          </li>
-          {/* Add other links */}
         </ul>
       </nav>
     </div>

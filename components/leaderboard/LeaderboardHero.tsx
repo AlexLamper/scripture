@@ -13,7 +13,7 @@ type Props = {
     return (
       <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
         <div className="container max-w-lg text-center">
-          <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">Leaderboard</h1>
+          <h1 className="mb-5 text-3xl font-bold md:mb-6 md:text-5xl lg:text-6xl">Leaderboard</h1>
           <p className="md:text-md">{description}</p>
         </div>
       </section>

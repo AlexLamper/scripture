@@ -61,7 +61,7 @@ export const Footer = (props: FooterProps) => {
           <div>
             <div className="rb-6 mb-6 md:mb-8">
               <a href={logo.url}>
-              <img src={logo.src} alt={logo.alt} className="inline-block w-32 h-auto" />
+               <h1 className="text-3xl font-bold">Scripture</h1>
               </a>
             </div>
             <div className="rb-6 mb-6 md:mb-8">
