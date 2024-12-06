@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { Card, CardContent, CardTitle } from "@/components/ui/card"; // Import your Card component from ShadCN
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 
 export default function SectionPage() {
   const [markers, setMarkers] = useState<any[]>([]);
