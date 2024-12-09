@@ -25,6 +25,7 @@ export const config = {
     "/notes",
     "/leaderboard",
     "/settings",
+    "/learn",
 
     /* API and dynamic routes */
     "/api/:path*",

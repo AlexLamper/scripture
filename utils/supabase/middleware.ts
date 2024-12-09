@@ -49,6 +49,8 @@ export const updateSession = async (request: NextRequest) => {
       "/settings",
       "/teachings",
       "/themes",
+      "/learn",
+      "/^\/learn(?:\/.*)?$/,",
     ];
 
     const publicRoutes = [

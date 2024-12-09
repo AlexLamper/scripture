@@ -1,16 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useMediaQuery } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronDown } from "react-icons/rx";
-// import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-import GrayButton from "../buttons/BrownButton";
-import { ThemeProvider } from "next-themes";
-import { ThemeSwitcher } from "../theme-switcher";
 import { ModeToggle } from "../buttons/ModeToggleButton";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { createClient } from "@/utils/supabase/client";
+import type { User } from "@supabase/supabase-js";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import Link from "next/link";
+import BrownButton from "../buttons/BrownButton";
 
 type ImageProps = {
   url?: string;
@@ -47,12 +56,26 @@ export const Navbar2 = (props: Navbar2Props) => {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
+  const [user, setUser] = useState<User | null>(null);
+  const supabase = createClient();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      setUser(data.user || null);
+    };
+
+    fetchUser();
+  }, [supabase]);
 
   return (
     <nav className="flex w-full items-center border-b border-border-primary bg-background-primary lg:px-[5%] min-h-[10vh]">
       <div className="mx-auto size-full items-center justify-between lg:flex">
         <div className="grid min-h-16 grid-cols-2 items-center justify-between px-[5%] md:max-h-[10vh] lg:min-h-full lg:px-0">
-          <div className="hover:cursor-pointer" onClick={() => window.location.href = "/"}>
+          <div
+            className="hover:cursor-pointer"
+            onClick={() => (window.location.href = "/")}
+          >
             <h1 className="text-3xl font-bold">Scripture</h1>
           </div>
           <button
@@ -111,24 +134,44 @@ export const Navbar2 = (props: Navbar2Props) => {
           ))}
           <div className="mt-6 flex flex-col items-center gap-4 lg:ml-4 lg:mt-0 lg:flex-row">
             <ModeToggle />
-            {/* Auth Section for Larger Screens */}
             <div className="hidden md:flex items-center space-x-4">
-              {/* <ClerkLoading>
-                <div className="h-5 w-5 text-gray-400 animate-spin" />
-              </ClerkLoading>
-              <ClerkLoaded>
-                <SignedIn>
-                  <UserButton />
-                </SignedIn>
-                <SignedOut>
-                  <SignInButton mode="modal">
-                    <GrayButton title="Login" height="h-[2.8rem] p-4" fontSize="text-[1rem]" />
-                  </SignInButton>
-                  <SignUpButton mode="modal">
-                    <GrayButton title="Sign Up" height="h-[2.8rem] p-4" fontSize="text-[1rem]" />
-                  </SignUpButton>
-                </SignedOut>
-              </ClerkLoaded> */}
+              {user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Avatar>
+                      <AvatarImage
+                        src={
+                          user.user_metadata?.avatar_url ||
+                          "https://github.com/shadcn.png"
+                        }
+                      />
+                      <AvatarFallback>
+                        {user.user_metadata?.full_name
+                          ? user.user_metadata.full_name
+                              .split(" ")
+                              .map((word: string) => word[0])
+                              .join("")
+                          : "NA"}
+                      </AvatarFallback>
+                    </Avatar>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <Link href="/profile">Profile</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => {
+                      supabase.auth.signOut();
+                      window.location.reload();
+                    }} className="hover:cursor-pointer">
+                      Sign Out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <BrownButton title="Sign up" url="/sign-up" />
+              )}
             </div>
           </div>
         </motion.div>
