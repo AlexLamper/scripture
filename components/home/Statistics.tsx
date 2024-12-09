@@ -10,9 +10,9 @@ import DailyVerse from '../daily/DailyVerse';
 const Statistics = () => {
   return (
     <div className='overflow-auto'>
-        <div className='flex flex-col space-y-4'>
+        <div className='flex flex-col space-y-4 lg:max-w-[80%]'>
             <div id='card-1'>
-                <Card className='bg-[#A67B5B] text-white'>
+                <Card>
                     <CardHeader>
                         <CardTitle className='font-bold text-lg'>Daily Verse</CardTitle>
                     </CardHeader>
@@ -23,7 +23,7 @@ const Statistics = () => {
             </div>
 
             <div id='card-2'>
-                <Card className='bg-[#A67B5B] text-white'>
+                <Card>
                     <CardHeader>
                         <CardTitle className='font-bold text-lg'>Leaderboard</CardTitle>
                     </CardHeader>
@@ -35,7 +35,7 @@ const Statistics = () => {
             </div>
 
             <div id='card-3'>
-                <Card className='bg-[#A67B5B] text-white'>
+                <Card>
                     <CardHeader>
                         <CardTitle className='font-bold text-lg'>Daily Quests</CardTitle>
                     </CardHeader>

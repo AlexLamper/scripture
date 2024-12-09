@@ -26,7 +26,8 @@ const isProtectedRoute = (pathname: string) => {
     '/themes',
     '/protected',
     '/profile',
-    '/learn'
+    '/learn',
+    '/sections',
   ];
 
   if (pathname.startsWith('/map')) {
@@ -71,6 +72,12 @@ const Sidebar = () => {
             <Link href="/leaderboard" className="flex items-center w-full px-4 py-2 rounded font-medium hover:bg-opacity-10 transition-colors duration-200">
               <MdLeaderboard size={20} className="mr-2" />
               Leaderboard
+            </Link>
+          </li>
+          <li className={`mb-4 flex items-center cursor-pointer ${pathname === '/profile' ? 'bg-[#A67B5B] text-white dark:bg-[#A67B5B] rounded-[0.4rem]' : ''}`}>
+            <Link href="/profile" className="flex items-center w-full px-4 py-2 rounded font-medium hover:bg-opacity-10 transition-colors duration-200">
+              <MdPerson4 size={20} className="mr-2" />
+              Profile
             </Link>
           </li>
         </ul>

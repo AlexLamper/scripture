@@ -1,29 +1,11 @@
-type Props = {
-    description: string;
-  };
-  
-  export type Header64Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
-  
-  export const Header64 = (props: Header64Props) => {
-    const { description } = {
-      ...Header64Defaults,
-      ...props,
-    } as Props;
-  
-    return (
-      <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-        <div className="container max-w-lg text-center">
-          <h1 className="mb-5 text-3xl font-bold md:mb-6 md:text-5xl lg:text-6xl">Leaderboard</h1>
-          <p className="md:text-md">{description}</p>
-        </div>
-      </section>
-    );
-  };
-  
-  export default Header64;
-  
-  export const Header64Defaults: Header64Props = {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-  };
-  
+import React from 'react'
+
+const LeaderboardHero = () => {
+  return (
+    <div>
+      <h1 className='text-2xl font-bold'>Leaderboard</h1>
+    </div>
+  )
+}
+
+export default LeaderboardHero
