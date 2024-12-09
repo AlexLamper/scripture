@@ -3,8 +3,20 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import { useParams } from "next/navigation";
-import { Card, CardContent, CardTitle } from "@/components/ui/card"; // Import your Card component from ShadCN
-import { Button } from "@/components/ui/button"; // Assuming you have a Button component
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import BrownButton from "@/components/buttons/BrownButton";
 
 export default function MarkerPage() {
   const [content, setContent] = useState<string | null>(null);
@@ -68,15 +80,57 @@ export default function MarkerPage() {
     setEditContent(null);
   };
 
-  const handleSave = () => {
-    // Save functionality will be implemented later
-    setEditing(false);
+  const handleSave = async () => {
+    if (!editContent) {
+      setError("Content cannot be empty.");
+      return;
+    }
+  
+    try {
+      // Update the content in the database
+      const { error } = await supabase
+        .from("content")
+        .update({ markdown: editContent })
+        .eq("marker_id", marker);
+  
+      if (error) {
+        throw new Error(`Error updating content for marker ${marker}: ${error.message}`);
+      }
+  
+      // Update the content in the local state
+      setContent(editContent);
+      setEditing(false);
+    } catch (err: any) {
+      setError(err.message);
+      console.error("Error saving content:", err);
+    }
   };
+
+  const handleDelete = async () => {
+    try {
+      // Confirm deletion with the marker ID
+      const { error } = await supabase
+        .from("content")
+        .delete()
+        .eq("marker_id", marker);
+  
+      if (error) {
+        throw new Error(`Error deleting content for marker ${marker}: ${error.message}`);
+      }
+  
+      setContent(null);
+      alert("Content deleted successfully.");
+  
+    } catch (err: any) {
+      setError(err.message);
+      console.error("Error deleting content:", err);
+    }
+  };  
 
   if (loading) {
     return (
       <div className="flex-1 w-full flex flex-col items-center justify-center p-6">
-        <p className="text-gray-600 text-lg">Loading content...</p>
+        <p className="text-lg">Loading content...</p>
       </div>
     );
   }
@@ -94,9 +148,12 @@ export default function MarkerPage() {
 
   if (!content) {
     return (
-      <div className="flex-1 w-full flex flex-col items-center justify-center p-6">
-        <div className="bg-yellow-100 text-yellow-800 border border-yellow-300 rounded-md p-4">
-          <p className="font-semibold">No content found for this marker.</p>
+      <div className="flex-1 w-full flex flex-col p-6 min-h-screen">
+        <div className="rounded-md p-4">
+            <p className="font-semibold mb-6">No content found for this marker.</p>
+            <Button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
+              Go Back
+            </Button>
         </div>
       </div>
     );
@@ -104,11 +161,9 @@ export default function MarkerPage() {
 
   return (
     <div className="flex-1 w-full flex flex-col min-h-[100vh] p-6">
-      <h2 className="font-bold text-3xl mb-6">Content for Marker: {marker}</h2>
+      <h2 className="font-bold text-3xl mb-6">{marker}</h2>
       <Card className="border rounded-lg shadow-md hover:shadow-lg transition-shadow">
         <CardContent className="p-4">
-          <CardTitle className="text-lg font-semibold mb-4">Marker Details</CardTitle>
-
           {editing ? (
             <textarea
               className="w-full h-40 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -133,12 +188,33 @@ export default function MarkerPage() {
                   >
                     Edit
                   </Button>
-                  <Button
-                    variant="destructive"
-                    className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
-                  >
-                    Delete
-                  </Button>
+                  <AlertDialog>
+                    <AlertDialogTrigger>
+                      <Button
+                        variant="destructive"
+                        className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+                      >
+                        Delete
+                      </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                        <AlertDialogDescription>
+                          This action cannot be undone. This will permanently delete this marker and its data.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction
+                          onClick={handleDelete}
+                          className="bg-red-600 text-white hover:bg-red-700"
+                        >
+                          Continue
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
                 </>
               ) : (
                 <>
