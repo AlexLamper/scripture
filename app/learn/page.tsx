@@ -5,6 +5,7 @@ import { createClient } from "@/utils/supabase/client";
 import Link from "next/link";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import Map from "@/components/map/Map";
+import Statistics from "@/components/home/Statistics";
 
 export default function MapPage() {
   const [sections, setSections] = useState<any[]>([]);
@@ -51,21 +52,36 @@ export default function MapPage() {
   }
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-12 min-h-[100vh] p-6">
-      <h2 className="font-bold text-3xl mb-6">Explore the Sections</h2>
-      <Map />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sections.map((section) => (
-          <Card key={section.section_id} className="border rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <CardContent className="p-4">
-              <CardTitle className="text-lg font-semibold">
-                <Link href={`/map/${section.section_id}`} className="text-blue-600 hover:text-blue-800">
-                  {section.title}
-                </Link>
-              </CardTitle>
-            </CardContent>
-          </Card>
-        ))}
+    <div className="flex-1 w-full flex flex-col min-h-[100vh] p-6">
+      <div className="flex w-full gap-6">
+        <div id="map-section" className="w-3/5">
+          <h2 className="font-bold text-3xl mb-6 mx-auto flex justify-center">Explore the Sections</h2>
+          <Map />
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sections.map((section) => (
+              <Card
+                key={section.section_id}
+                className="border rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              >
+                <CardContent className="p-4">
+                  <CardTitle className="text-lg font-semibold">
+                    <Link
+                      href={`/map/${section.section_id}`}
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      {section.title}
+                    </Link>
+                  </CardTitle>
+                </CardContent>
+              </Card>
+            ))}
+          </div> */}
+        </div>
+
+        <div id="statistics-section" className="w-2/5 hidden md:block">
+          <h2 className="font-bold text-3xl mb-6">Statistics</h2>
+          <Statistics />
+        </div>
       </div>
     </div>
   );

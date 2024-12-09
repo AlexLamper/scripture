@@ -92,9 +92,8 @@ const Map = () => {
 
   return (
     <div className="w-full h-full overflow-auto p-6 space-y-10 map-container">
-      <h3 className="text-2xl font-bold text-[#855940] justify-center text-center mb-8">
-        Tervetuloa!
-      </h3>
+      <h3 className="text-2xl font-bold text-center mb-8">Tervetuloa!</h3>
+
       <style jsx global>{`
         .map-container {
           -ms-overflow-style: none; /* Internet Explorer and Edge */
@@ -108,16 +107,17 @@ const Map = () => {
       {sections.map((section: any, index) => (
         <React.Fragment key={section.section_id}>
           {index > 0 && (
-            <div className="flex items-center my-8 max-w-[60%] mx-auto">
-              <hr className="flex-grow border-[#997059] border-opacity-65" />
-              <span className="mx-4 text-[#855940] font-bold text-xl">{section.title}</span>
-              <hr className="flex-grow border-[#997059] border-opacity-65" />
+            <div className="flex items-center my-8 max-w-[90%] mx-auto">
+              <hr className="flex-grow border-opacity-65" />
+              <span className="mx-4 font-bold text-xl text-center">{section.title}</span>
+              <hr className="flex-grow border-opacity-65" />
             </div>
           )}
-          <div className="relative w-full">
+
+          <div className="relative w-full flex justify-center lg:max-w-[65%] md:max-w-[85%] max-w-[100%] mx-auto">
             <div
-              className="grid grid-cols-2 gap-12 relative max-w-[20%] mx-auto"
-              style={{ gridTemplateColumns: "repeat(2, 1fr)" }}
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-[80%] mx-auto"
+              style={{ gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))" }}
             >
               {section.markers.map((marker: any, index: number) => {
                 const completed = progress[marker.marker_id] || false;
@@ -125,7 +125,7 @@ const Map = () => {
                 return (
                   <div
                     key={marker.marker_id}
-                    className={`flex justify-center ${index % 2 === 0 ? "mt-0" : "mt-12"}`}
+                    className={`flex justify-center items-center ${index % 2 === 0 ? "mt-0" : "mt-6"}`}
                   >
                     <MarkerButton
                       name={marker.name}

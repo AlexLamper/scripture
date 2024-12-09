@@ -9,7 +9,7 @@ import DailyVerse from '../daily/DailyVerse';
 
 const Statistics = () => {
   return (
-    <div className='p-12 overflow-auto'>
+    <div className='overflow-auto'>
         <div className='flex flex-col space-y-4'>
             <div id='card-1'>
                 <Card className='bg-[#A67B5B] text-white'>
