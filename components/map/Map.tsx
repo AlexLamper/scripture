@@ -107,7 +107,7 @@ const Map = () => {
       {sections.map((section: any, index) => (
         <React.Fragment key={section.section_id}>
           {index > 0 && (
-            <div className="flex items-center my-8 max-w-[90%] mx-auto">
+            <div className="flex items-center my-8 lg:max-w-[90%] mx-auto">
               <hr className="flex-grow border-opacity-65" />
               <span className="mx-4 font-bold text-xl text-center">{section.title}</span>
               <hr className="flex-grow border-opacity-65" />
