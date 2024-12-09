@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
-import Link from "next/link";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import Map from "@/components/map/Map";
 import Statistics from "@/components/home/Statistics";
 
@@ -55,27 +53,7 @@ export default function MapPage() {
     <div className="flex-1 w-full flex flex-col min-h-[100vh] p-6">
       <div className="flex w-full gap-6">
         <div id="map-section" className="lg:w-8/12 w-auto">
-          <h2 className="font-bold text-3xl mb-6 mx-auto flex justify-center">Explore the Sections</h2>
           <Map />
-          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sections.map((section) => (
-              <Card
-                key={section.section_id}
-                className="border rounded-lg shadow-md hover:shadow-lg transition-shadow"
-              >
-                <CardContent className="p-4">
-                  <CardTitle className="text-lg font-semibold">
-                    <Link
-                      href={`/map/${section.section_id}`}
-                      className="text-blue-600 hover:text-blue-800"
-                    >
-                      {section.title}
-                    </Link>
-                  </CardTitle>
-                </CardContent>
-              </Card>
-            ))}
-          </div> */}
         </div>
 
         <div id="statistics-section" className="lg:w-4/12 hidden md:block w-auto">
