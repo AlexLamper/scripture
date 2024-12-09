@@ -2,13 +2,9 @@
 
 Thanks for checking out **Scripture** – Your Interactive Bible Learning Platform.
 
----
-
 ## About Scripture
 
 I created Scripture as my second 'startup' in the creation of 6 startups in 6 months. Scripture is a web-based platform designed to help users explore and study the Bible interactively. Whether you're a beginner or someone with extensive Bible knowledge, Scripture provides personalized tools, quizzes, and learning resources to enhance your journey.
-
----
 
 ## 📜 Table of Contents
 
@@ -23,8 +19,6 @@ I created Scripture as my second 'startup' in the creation of 6 startups in 6 mo
 9. [FAQ](#faq)
 10. [Contact](#contact)
 
----
-
 ## 🌟 Features
 
 - **Personalized Learning**: Track your progress with personalized suggestions and daily Bible reading prompts.
@@ -34,8 +28,6 @@ I created Scripture as my second 'startup' in the creation of 6 startups in 6 mo
 - **Leaderboards**: Compete with other users in quizzes and progress tracking.
 - **Community Insights**: Engage with the community by sharing insights, notes, and learning experiences.
 - **Daily Verses and Teachings**: Access daily Bible verses and thematic teachings to reflect upon.
-
----
 
 ## 💻 Tech Stack
 
@@ -51,8 +43,6 @@ Scripture uses modern technologies to provide an optimal performance and user ex
 - **ShadCN**: UI styling library for modular and accessible components, ensuring a cohesive design.
 - **React-Icons**: Extensive icon library to improve visual consistency in the UI.
 
----
-
 ## 📄 Pages
 
 - **Home**: The main page featuring the interactive Bible map and daily content suggestions.
@@ -66,13 +56,9 @@ Scripture uses modern technologies to provide an optimal performance and user ex
 - **Settings**: Manage your account settings and preferences.
 - **Help/FAQ**: Access FAQs and resources for support.
 
----
-
 ## 🌐 API
 
 Scripture uses the **Bible API** for fetching Bible verses and related content, providing an enriched and up-to-date learning experience. For more information on available data, check out the [Bible API documentation](https://example.com).
-
----
 
 ## 🤝 Contributing
 
@@ -84,25 +70,17 @@ Scripture is an open-source project and contributions are welcome! Here's how yo
 
 Every contribution helps make BibleMap better for everyone! 🎉
 
----
-
 ## ❤️ Support
 
 If you’d like to support the project, sharing Scripture with others or contributing to the development is greatly appreciated!
-
----
 
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE), allowing for reuse and modification with attribution.
 
----
-
 ## 📌 Version
 
 Current Version: **v1.0**
-
----
 
 ## ❓ FAQ
 
@@ -114,8 +92,6 @@ A: Scripture currently supports the **King James Version (KJV)**, with plans to 
 
 **Q: How do I report a bug or suggest a feature?**  
 A: Please open an issue on our GitHub repository with details of your suggestion or bug report.
-
----
 
 ## 📬 Contact
 
