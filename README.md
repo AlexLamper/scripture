@@ -28,6 +28,7 @@ I created Scripture as my second 'startup' in the creation of 6 startups in 6 mo
 - **Leaderboards**: Compete with other users in quizzes and progress tracking.
 - **Community Insights**: Engage with the community by sharing insights, notes, and learning experiences.
 - **Daily Verses and Teachings**: Access daily Bible verses and thematic teachings to reflect upon.
+- **Adding Notes**: Add, edit and remove any notes you want so you don't forget what you've learned.
 
 ## 💻 Tech Stack
 
@@ -37,15 +38,17 @@ Scripture uses modern technologies to provide an optimal performance and user ex
 - **Supabase**: Database and authentication managed all by Supabase, fast and easy to use.
 - **Vercel**: Hosting and deployment platform optimized for Next.js applications.
 - **TailwindCSS**: Utility-first CSS framework for rapid, consistent styling.
-- **Leaflet**: JavaScript library for interactive maps, making Bible geography and exploration more engaging.
 - **Bible API**: Fetch Bible verses and related information to provide an enriched learning experience.
-- **Clerk**: Authentication service for secure login and account management.
 - **ShadCN**: UI styling library for modular and accessible components, ensuring a cohesive design.
 - **React-Icons**: Extensive icon library to improve visual consistency in the UI.
+- **RedixUI**: A library for creating responsive design systems with React.
+- **NextUI**: A library for creating responsive design systems with Next.js.
+- **RelumeIO**: A library used for design templates and components.
+- **FramerMotion**: A library used for animations and transitions.
 
 ## 📄 Pages
 
-- **Home**: The main page featuring the interactive Bible map and daily content suggestions.
+- **Learn**: The main page featuring the interactive Bible map and daily content suggestions.
 - **Chapters**: Explore individual Bible chapters with a breakdown of key verses and themes.
 - **Places**: Learn about significant biblical places and their relevance in the Bible.
 - **Characters**: Discover key Bible characters, their stories, and their impact.
@@ -58,7 +61,7 @@ Scripture uses modern technologies to provide an optimal performance and user ex
 
 ## 🌐 API
 
-Scripture uses the **Bible API** for fetching Bible verses and related content, providing an enriched and up-to-date learning experience. For more information on available data, check out the [Bible API documentation](https://example.com).
+Scripture uses the **Bible API** for fetching Bible verses and related content, providing an enriched and up-to-date learning experience. For more information on available data, check out the [Bible API Source](https://rapidapi.com/ajith/api/holy-bible).
 
 ## 🤝 Contributing
 
