@@ -16,7 +16,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import BrownButton from "@/components/buttons/BrownButton";
+import { Spinner } from "@nextui-org/spinner";
 
 export default function MarkerPage() {
   const [content, setContent] = useState<string | null>(null);
@@ -130,7 +130,7 @@ export default function MarkerPage() {
   if (loading) {
     return (
       <div className="flex-1 w-full flex flex-col items-center justify-center p-6">
-        <p className="text-lg">Loading content...</p>
+        <Spinner color="default" label="Loading data..." labelColor="foreground" />
       </div>
     );
   }
