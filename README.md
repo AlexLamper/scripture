@@ -91,7 +91,7 @@ Current Version: **v1.0**
 A: Yes! Scripture is free for everyone. Premium features may be added in the future.
 
 **Q: What Bible translations are supported?**  
-A: Scripture currently supports the **King James Version (KJV)**, with plans to expand to other translations in the future.
+A: Scripture currently supports the multiple bible version such as the King James Bible, with plans to expand to other translations in the future.
 
 **Q: How do I report a bug or suggest a feature?**  
 A: Please open an issue on our GitHub repository with details of your suggestion or bug report.
