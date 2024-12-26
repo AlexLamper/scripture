@@ -12,6 +12,26 @@ const Map = () => {
   const [error, setError] = useState<string | null>(null);
   const supabase = createClient();
   const router = useRouter();
+  const [loggedInUser, setLoggedInUser] = useState<string>("User");
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data, error } = await supabase.auth.getUser();
+      if (data?.user) {
+        const { data: profileData, error: profileError } = await supabase
+          .from("profiles")
+          .select("name")
+          .eq("id", data.user.id)
+          .single();
+
+        if (profileData) {
+          setLoggedInUser(profileData.name || "User");
+        }
+      }
+    };
+
+    fetchUser();
+  }, [supabase]);
 
   useEffect(() => {
     const fetchSectionsAndMarkers = async () => {
@@ -92,7 +112,7 @@ const Map = () => {
 
   return (
     <div className="w-full h-full overflow-auto p-6 space-y-10 map-container">
-      <h3 className="text-3xl font-bold text-center mb-8">Tervetuloa!</h3>
+      <h3 className="text-3xl font-bold text-center mb-8">Welcome back {loggedInUser}</h3>
 
       <style jsx global>{`
         .map-container {
