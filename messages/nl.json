@@ -1,0 +1,11 @@
+{
+  "HomePage": {
+    "title": "Hallo Wereld!"
+  },
+  "navbar": {
+    "home": "Startpagina",
+    "about": "Over",
+    "contact": "Contact",
+    "language": "Taal"
+  }
+}

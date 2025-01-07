@@ -6,12 +6,14 @@ import Map from "@/components/map/Map";
 import Statistics from "@/components/home/Statistics";
 import { Suspense } from 'react'
 import {Spinner} from "@nextui-org/spinner";
+import {useTranslations} from 'next-intl';
 
 export default function MapPage() {
   const [sections, setSections] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const supabase = createClient();
+  const t = useTranslations('HomePage');
 
   useEffect(() => {
     const fetchSections = async () => {
@@ -66,7 +68,7 @@ export default function MapPage() {
         </div>
 
         <div id="statistics-section" className="lg:w-4/12 hidden md:block w-auto">
-          <h2 className="font-bold text-3xl mb-6">Statistics</h2>
+          <h2 className="font-bold text-3xl mb-6">{t('title')}</h2>
           <Suspense fallback={<p>Loading statistics...</p>}>
             <Statistics />
           </Suspense>
